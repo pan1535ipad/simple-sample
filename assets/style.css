@@ -22,3 +22,7 @@ h1,h2,h3{text-wrap:balance;line-break:strict}p,li,dt,dd,figcaption{text-wrap:pre
   .section-head h2,.company-preview h2,.cta h2,.lead h2,.message h2,.contact-info h2{font-size:clamp(1.9rem,9vw,2.5rem);line-height:1.55}
   .page-hero h1{font-size:clamp(2.35rem,11vw,3rem)}
 }
+
+
+/* Meaning-based mobile line breaks — 2026-09-15 */
+@media(max-width:600px){.sp-line{display:block!important}p br{display:block!important}.hero-copy>p:not(.eyebrow){font-size:0}.hero-copy>p:not(.eyebrow)::before{content:"外壁を正しく診断し、\\A 必要な補修を誠実に届けます。";display:block;white-space:pre-line;font-size:15px;line-height:1.9}}
