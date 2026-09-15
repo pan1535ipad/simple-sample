@@ -1,35 +1,3 @@
 const menu=document.querySelector('.menu'),nav=document.querySelector('.nav');if(menu){menu.addEventListener('click',()=>{menu.classList.toggle('open');nav.classList.toggle('open');menu.setAttribute('aria-expanded',menu.classList.contains('open'))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');nav.classList.remove('open')}))}const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const counters=document.querySelectorAll('[data-count]');const countObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=+el.dataset.count,duration=1200,start=performance.now();const tick=now=>{const p=Math.min((now-start)/duration,1);el.textContent=Math.floor(target*(1-Math.pow(1-p,3))).toLocaleString();if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);countObserver.unobserve(el)}),{threshold:.5});counters.forEach(el=>countObserver.observe(el));const form=document.querySelector('#contactForm');if(form)form.addEventListener('submit',e=>{e.preventDefault();const btn=form.querySelector('button');btn.textContent='送信を受け付けました（デモ）';btn.disabled=true;setTimeout(()=>{btn.innerHTML='入力内容を送信する <span>→</span>';btn.disabled=false;form.reset()},3000)});
 
 
-/* Keep intentional headline breaks intact on phones, then fit each line. */
-(() => {
-  const phone = window.matchMedia('(max-width: 600px)');
-  const targets = () => document.querySelectorAll('h1:has(br), h2:has(br), h3:has(br)');
-
-  function fitHeadline(el) {
-    el.style.removeProperty('font-size');
-    el.style.removeProperty('white-space');
-    if (!phone.matches) return;
-
-    el.style.whiteSpace = 'nowrap';
-    const available = el.clientWidth;
-    const required = el.scrollWidth;
-    if (!available || required <= available) return;
-
-    const current = parseFloat(getComputedStyle(el).fontSize);
-    el.style.fontSize = Math.max(20, current * available / required * 0.97) + 'px';
-  }
-
-  function fitAllHeadlines() {
-    targets().forEach(fitHeadline);
-  }
-
-  let resizeFrame;
-  window.addEventListener('resize', () => {
-    cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(fitAllHeadlines);
-  });
-  window.addEventListener('DOMContentLoaded', fitAllHeadlines);
-  window.addEventListener('load', fitAllHeadlines);
-  document.fonts?.ready.then(fitAllHeadlines);
-})();
