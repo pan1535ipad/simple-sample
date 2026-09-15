@@ -25,4 +25,4 @@ h1,h2,h3{text-wrap:balance;line-break:strict}p,li,dt,dd,figcaption{text-wrap:pre
 
 
 /* Meaning-based mobile line breaks — 2026-09-15 */
-@media(max-width:600px){.sp-line{display:block!important}p br{display:block!important}.hero-copy>p:not(.eyebrow){font-size:0}.hero-copy>p:not(.eyebrow)::before{content:"外壁を正しく診断し、\\A 必要な補修を誠実に届けます。";display:block;white-space:pre-line;font-size:15px;line-height:1.9}}
+@media(max-width:600px){.sp-line{display:block!important}p br{display:block!important}.hero-copy>p:not(.eyebrow){font-size:0}.hero-copy>p:not(.eyebrow)::before{content:"外壁を正しく診断し、\A 必要な補修を誠実に届けます。";display:block;white-space:pre-line;font-size:15px;line-height:1.9}}
