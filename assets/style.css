@@ -57,3 +57,8 @@ html{line-break:strict}
 h1,h2,h3,.lead,.catch,.copy{text-wrap:balance;overflow-wrap:normal;word-break:normal}
 p,li,dt,dd,figcaption{text-wrap:pretty;overflow-wrap:break-word;word-break:normal}
 @supports (word-break:auto-phrase){h1,h2,h3,.lead,.catch,.copy,p,li,dt,dd,figcaption{word-break:auto-phrase}}
+
+
+/* Keep the contact heading's words intact while preserving the desktop layout. */
+.mobile-break{display:none!important}
+@media(max-width:600px){.mobile-break{display:block!important}}
