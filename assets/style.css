@@ -138,3 +138,21 @@ p,li,dt,dd,figcaption{text-wrap:pretty;overflow-wrap:break-word;word-break:norma
     overflow:visible;
   }
 }
+
+/* User-defined Japanese phrase units: wrap only between semantic chunks. */
+.phrase-heading{
+  white-space:normal!important;
+  text-wrap:wrap!important;
+  word-break:normal;
+  overflow-wrap:normal;
+}
+.phrase-heading>span{
+  display:inline-block!important;
+  width:auto!important;
+  max-width:100%;
+  white-space:nowrap!important;
+  text-wrap:nowrap!important;
+}
+.phrase-heading>wbr{
+  display:inline;
+}
