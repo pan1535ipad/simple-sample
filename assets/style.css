@@ -36,7 +36,7 @@ h1,h2,h3{text-wrap:balance;line-break:strict}p,li,dt,dd,figcaption{text-wrap:pre
   p,li,dd{max-width:100%;overflow-wrap:anywhere}
   img,video{display:block;max-width:100%!important;height:auto}
   .service-detail,.service-detail article,.service-grid,.card,.contact-wrap{max-width:100%;min-width:0}
-  .hero h1{font-size:clamp(2rem,10vw,2.45rem)!important;white-space:nowrap!important}
+  .hero h1{font-size:clamp(2rem,10vw,2.45rem)!important}
 }
 
 
@@ -107,35 +107,6 @@ p,li,dt,dd,figcaption{text-wrap:pretty;overflow-wrap:break-word;word-break:norma
   }
   .page-hero h1{
     font-size:clamp(34px,calc(30vw - 74px),48px)!important;
-  }
-}
-
-/* Keep each manually chosen Japanese phrase together, then fit the full heading to its real rendered width. */
-@media(max-width:820px){
-  .fit-heading{
-    max-width:100%;
-    text-wrap:initial;
-  }
-  .fit-heading>span{
-    display:block;
-    width:max-content;
-    max-width:none;
-    white-space:nowrap;
-    text-wrap:nowrap;
-  }
-  .fit-heading>br{
-    display:none;
-  }
-}
-
-
-/* Stabilize large service labels in iOS and LINE in-app browser. */
-@media(max-width:820px){
-  .service-detail h2{
-    max-width:100%;
-    white-space:nowrap;
-    text-wrap:nowrap;
-    overflow:visible;
   }
 }
 
